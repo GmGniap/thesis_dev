@@ -22,8 +22,8 @@ int PWM_val = 0;                                // (25% = 64; 50% = 127; 75% = 1
 int voltage = 0;                                // in mV
 int current = 0;                                // in mA
 volatile long count = 0;                        // rev counter
-float Kp =   .4;                                // PID proportional control Gain
-float Kd =    1;                                // PID Derivitave control gain
+float Kp =   .79;                                // PID proportional control Gain
+float Kd =    0;                                // PID Derivitave control gain
 
 
 void setup() {
