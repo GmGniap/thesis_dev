@@ -1,8 +1,11 @@
+//This Program is about measuring rotating displacement of wheel with encoder , from Manual book - P193 - section(6-5)
+
 #define Encoder_count_H_
 #define FORWARD 0x09
 #define BACKWARD 0x06
 
-#include <MsTimer2.h>
+#include <FlexiTimer2.h>
+
 void flash() {
   static boolean output = HIGH;
 
@@ -30,15 +33,15 @@ Serial.print("Hello");
 attachInterrupt(6,Encoder_count_L,FALLING);
 attachInterrupt(7,Encoder_count_R,FALLING);
 
-MsTimer2::set(500000,Timer_ISR);
-MsTimer2::start();
+FlexiTimer2::set(500,Timer_ISR);
+FlexiTimer2::start();
 Motor_mode(FORWARD);
 Motor_Control('A');
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-if(Timer_flag=1)
+if(Timer_flag)
 {
   Encoder_value_L=Encoder_L;
   Encoder_value_R=Encoder_R;
