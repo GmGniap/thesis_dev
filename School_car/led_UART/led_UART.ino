@@ -1,6 +1,6 @@
 //This program is about controlling LED/Buzzer by UART , included in Manual Book - Page 155 - Section(5-3)
 #include<Arduino.h>
-#include<MsTimer2.h>
+#include<FlexiTimer2.h>
 
 #define FORWARD 0x09
 #define BACK  0x06
@@ -29,8 +29,8 @@ void setup() {
   
   Serial.begin(115200);
   Serial.println("Smart Car >>");
-  MsTimer2::set(500000,flash);
-  MsTimer2::start();
+  FlexiTimer2::set(500,flash);
+  FlexiTimer2::start();
   Serial.println("Timer start..");
 }
 
